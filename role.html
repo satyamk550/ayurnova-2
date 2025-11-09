@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Choose Role | AyurNova</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-gray-50">
+    <main class="max-w-4xl mx-auto p-6">
+        <div class="glass p-8 text-center">
+            <h1 class="text-2xl font-bold text-[#2e7d32] mb-4">Continue as</h1>
+            <p class="text-gray-600 mb-6">Choose Patient, Doctor, or Government to proceed to Login or Signup.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-2">Patient</h2>
+                    <p class="text-sm text-gray-600 mb-4">Access personal health records and book treatments.</p>
+                    <div class="space-x-2">
+                        <a class="btn-primary px-4 py-2 rounded-full text-white inline-block" href="login.html?role=patient">Login</a>
+                        <a class="px-4 py-2 rounded-full border inline-block" href="signup.html?role=patient">Signup</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-2">Doctor</h2>
+                    <p class="text-sm text-gray-600 mb-4">Manage patients, appointments and inventory.</p>
+                    <div class="space-x-2">
+                        <a class="btn-primary px-4 py-2 rounded-full text-white inline-block" href="login.html?role=doctor">Login</a>
+                        <a class="px-4 py-2 rounded-full border inline-block" href="signup.html?role=doctor">Signup</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-2">Government</h2>
+                    <p class="text-sm text-gray-600 mb-4">Access national dashboards and exports.</p>
+                    <div class="space-x-2">
+                        <a class="btn-primary px-4 py-2 rounded-full text-white inline-block" href="login.html?role=government">Login</a>
+                        <a class="px-4 py-2 rounded-full border inline-block" href="signup.html?role=government">Signup</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 text-sm"><a href="landingpage.html" class="underline">Back to Home</a></p>
+        </div>
+    </main>
+</body>
+</html>

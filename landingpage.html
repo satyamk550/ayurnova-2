@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyurNova 🌿 - Digital Ayurveda EMR & Panchakarma Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .btn-primary {
+            /* Stronger green gradient for primary action */
+            background: linear-gradient(90deg, #2e7d32 0%, #a5d6a7 100%);
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 10px 15px -3px rgba(46, 125, 50, 0.5), 0 4px 6px -2px rgba(46, 125, 50, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar: White and Green Stripe Theme -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-[#2e7d32]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo (Left Side) -->
+                <a href="index.html" class="flex items-center space-x-2 text-3xl font-extrabold text-[#2e7d32] tracking-wider">
+                    <span aria-hidden="true">🌿</span>
+                    <span>AyurNova</span>
+                </a>
+
+                <!-- Navigation and Auth Buttons (Right Side, Desktop) -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <!-- Navigation Links -->
+                    <div class="flex space-x-6">
+                        <a href="landingpage.html" class="text-gray-900 hover:text-[#2e7d32] font-semibold transition duration-150 ease-in-out">Home</a>
+                        <a href="login.html?role=patient" class="text-gray-600 hover:text-[#2e7d32] transition duration-150 ease-in-out">Patient</a>
+                        <a href="login.html?role=doctor" class="text-gray-600 hover:text-[#2e7d32] transition duration-150 ease-in-out">Doctor</a>
+                        <a href="login.html?role=government" class="text-gray-600 hover:text-[#2e7d32] transition duration-150 ease-in-out">Government</a>
+                    </div>
+
+                    <!-- Auth Buttons -->
+                    <div class="flex space-x-3 ml-6 border-l pl-6 border-gray-200">
+                        <a href="login.html" class="px-4 py-2 text-gray-700 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-150 ease-in-out font-medium">Login</a>
+                        <a href="signup.html" class="px-4 py-2 text-white rounded-full font-medium btn-primary shadow-md">Signup</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-[#2e7d32]" aria-label="Toggle navigation menu">
+                    <!-- Hamburger Icon -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="landingpage.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Home</a>
+                <a href="login.html?role=patient" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50">Patient</a>
+                <a href="login.html?role=doctor" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50">Doctor</a>
+                <a href="login.html?role=government" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50">Government</a>
+                <a href="login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 border-t mt-2 pt-2">Login</a>
+                <a href="signup.html" class="block px-3 py-2 rounded-md text-base font-medium text-white btn-primary mt-1">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Headline -->
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 leading-tight">
+                Digital <span class="text-[#2e7d32]">Ayurveda EMR</span> & Panchakarma Treatment Management Platform
+            </h1>
+            <!-- Subtext -->
+            <p class="mt-6 max-w-3xl mx-auto text-xl text-gray-600">
+                Connecting **Patients, Doctors, and Government** through a unified Ayurvedic digital ecosystem.
+            </p>
+
+            <!-- Buttons -->
+            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="login.html?role=patient" class="btn-primary inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white shadow-lg hover:shadow-xl transition duration-150 ease-in-out w-full sm:w-auto">
+                    For Patients
+                </a>
+                <a href="login.html?role=doctor" class="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg transition duration-150 ease-in-out w-full sm:w-auto">
+                    For Doctors
+                </a>
+            </div>
+
+            <!-- NABH & ABDM Badges -->
+            <div class="mt-12 flex justify-center space-x-6">
+                <!-- Placeholder for NABH Certification Badge -->
+                <div class="flex items-center space-x-2 p-3 bg-white rounded-lg shadow-md border border-gray-100">
+                    <span class="text-3xl text-yellow-500" role="img" aria-label="Certification Badge">🏆</span>
+                    <span class="text-sm font-semibold text-gray-700">NABH Certified System</span>
+                </div>
+                <!-- Placeholder for ABDM Compliant Badge -->
+                <div class="flex items-center space-x-2 p-3 bg-white rounded-lg shadow-md border border-gray-100">
+                    <span class="text-3xl text-blue-500" role="img" aria-label="Certification Badge">🔗</span>
+                    <span class="text-sm font-semibold text-gray-700">ABDM Compliant EMR</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-12">Key Features of AyurNova</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:translate-y-[-3px] transition duration-300 ease-in-out border border-gray-100">
+                    <div class="p-3 inline-flex items-center justify-center rounded-full bg-[#a5d6a7]/50 text-[#2e7d32] mb-4">
+                        <span class="text-2xl" role="img" aria-label="Calendar">📅</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Book Treatments</h3>
+                    <p class="text-gray-600">Securely schedule Panchakarma therapies and Ayurvedic consultations online.</p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:translate-y-[-3px] transition duration-300 ease-in-out border border-gray-100">
+                    <div class="p-3 inline-flex items-center justify-center rounded-full bg-[#a5d6a7]/50 text-[#2e7d32] mb-4">
+                        <span class="text-2xl" role="img" aria-label="Health Records">📜</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Manage Health Records</h3>
+                    <p class="text-gray-600">Access and share your digital Ayurvedic EMR seamlessly and securely.</p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:translate-y-[-3px] transition duration-300 ease-in-out border border-gray-100">
+                    <div class="p-3 inline-flex items-center justify-center rounded-full bg-[#a5d6a7]/50 text-[#2e7d32] mb-4">
+                        <span class="text-2xl" role="img" aria-label="Inventory">📦</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Inventory Management</h3>
+                    <p class="text-gray-600">Real-time stock tracking for Ayurvedic medicines and raw materials.</p>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:translate-y-[-3px] transition duration-300 ease-in-out border border-gray-100">
+                    <div class="p-3 inline-flex items-center justify-center rounded-full bg-[#a5d6a7]/50 text-[#2e7d32] mb-4">
+                        <span class="text-2xl" role="img" aria-label="Compliance">✅</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">NABH & ABDM Compliant</h3>
+                    <p class="text-gray-600">Adheres to national standards for quality and digital health records.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">
+                &copy; 2025 AyurNova | Ayurveda meets Technology 🌿
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Button and Window (Global Component) -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+        <!-- Floating Button -->
+        <button id="chatbot-button" class="btn-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-white text-3xl hover:shadow-3xl transition duration-300 ease-in-out" aria-label="Open Chatbot">
+            💬
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 md:w-96 bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden transform scale-95 opacity-0 transition-all duration-300 ease-in-out border border-gray-200">
+            <!-- Header -->
+            <div class="p-4 bg-[#2e7d32] text-white flex justify-between items-center rounded-t-xl">
+                <h3 class="font-bold">AyurNova Assistant</h3>
+                <button id="chatbot-close" class="text-white hover:text-gray-200 text-xl leading-none" aria-label="Close Chatbot">&times;</button>
+            </div>
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="flex-grow p-4 space-y-4 overflow-y-auto h-80 bg-gray-50">
+                <!-- Messages will be injected here by JS -->
+            </div>
+            <!-- Input Area -->
+            <div class="p-4 border-t border-gray-200 bg-white">
+                <div class="flex space-x-2">
+                    <input id="chat-input" type="text" placeholder="Ask a question..." class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2e7d32] focus:border-transparent outline-none" aria-label="Chat input">
+                    <button id="chat-send" class="bg-[#2e7d32] text-white p-2 rounded-lg hover:bg-[#1b5e20] transition duration-150" aria-label="Send message">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
+                </div>
+                <p id="typing-indicator" class="text-sm text-gray-500 mt-2 hidden">Assistant is typing...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimal JS for Navbar (Mobile) -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    
+    <!-- Chatbot Script (Assumes scripts/chatbot.js is available) -->
+    <script src="scripts/chatbot.js"></script>
+
+</body>
+</html>

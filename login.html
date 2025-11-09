@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Login | AyurNova 🌿</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><rect width="100" height="100" fill="%23a5d6a7"/><circle cx="50" cy="50" r="45" fill="none" stroke="%232e7d32" stroke-width="2" opacity="0.5"/><path d="M50 5 L5 95 L95 95 Z" fill="%232e7d32" opacity="0.05"/></svg>');">
+
+    <div class="w-full max-w-2xl mx-4 p-8 glass shadow-2xl">
+        <div class="text-center mb-8">
+            <a href="landingpage.html" class="inline-flex items-center space-x-2 text-3xl font-extrabold text-[#2e7d32]">
+                <span aria-hidden="true">🌿</span>
+                <span id="main-title">AyurNova Login</span>
+            </a>
+                <p class="text-gray-600 mt-2" id="subtitle">Select your role to access your portal</p>
+        </div>
+
+        <!-- Role Selection Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <!-- Patient Card -->
+            <div id="role-patient" onclick="selectRole('patient')" class="role-card bg-white p-5 rounded-xl shadow-md border-2 border-gray-100 text-center">
+                <span class="text-4xl block mb-2" role="img" aria-label="Patient">🧑‍⚕️</span>
+                <p class="font-semibold text-lg text-gray-800">Patient</p>
+                <p class="text-xs text-gray-500">View records & book appointments</p>
+            </div>
+            <!-- Doctor Card -->
+            <div id="role-doctor" onclick="selectRole('doctor')" class="role-card bg-white p-5 rounded-xl shadow-md border-2 border-gray-100 text-center">
+                <span class="text-4xl block mb-2" role="img" aria-label="Doctor">👨‍⚕️</span>
+                <p class="font-semibold text-lg text-gray-800">Doctor/Vaidya</p>
+                <p class="text-xs text-gray-500">Manage EMR & treatment plans</p>
+            </div>
+            <!-- Government Card -->
+            <div id="role-government" onclick="selectRole('government')" class="role-card bg-white p-5 rounded-xl shadow-md border-2 border-gray-100 text-center">
+                <span class="text-4xl block mb-2" role="img" aria-label="Government">🏛️</span>
+                <p class="font-semibold text-lg text-gray-800">Government/Admin</p>
+                <p class="text-xs text-gray-500">Review aggregate data & compliance</p>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+            <input type="hidden" id="selected-role" name="role" value="">
+
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2e7d32] focus:border-transparent transition duration-150" placeholder="e.g., your@email.com" aria-label="Email address">
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input type="password" id="password" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2e7d32] focus:border-transparent transition duration-150" placeholder="password (for demo)" aria-label="Password">
+            </div>
+
+            <button type="submit" id="login-button" class="w-full btn-primary text-white font-semibold py-3 rounded-full shadow-lg transition duration-150 ease-in-out" aria-label="Log in">
+                Login
+            </button>
+
+            <p id="login-message" class="mt-4 text-center text-red-500 font-medium hidden" role="alert"></p>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">
+                Don’t have an account? <a href="signup.html" class="text-[#2e7d32] font-medium hover:text-[#1b5e20] transition duration-150">Signup here</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const ROLES = {
+            patient: { label: 'Patient', dashboard: 'patient-dashboard.html' },
+            doctor: { label: 'Doctor/Vaidya', dashboard: 'doctor-dashboard.html' },
+            government: { label: 'Government/Admin', dashboard: 'government-dashboard.html' }
+        };
+
+        const formTitle = document.getElementById('main-title');
+        const subtitle = document.getElementById('subtitle');
+        const loginButton = document.getElementById('login-button');
+        const selectedRoleInput = document.getElementById('selected-role');
+        const pageTitle = document.getElementById('page-title');
+        const loginMessage = document.getElementById('login-message');
+
+        /**
+         * Selects and highlights the chosen role, and updates the form context.
+         * @param {string} roleKey - 'patient', 'doctor', or 'government'
+         */
+        window.selectRole = function(roleKey) {
+            // 1. Clear existing selection classes
+            ['patient', 'doctor', 'government'].forEach(key => {
+                const el = document.getElementById(`role-${key}`);
+                if (el) {
+                    el.classList.remove('selected');
+                    // also clear any lingering transient pop class
+                    el.classList.remove('pop');
+                }
+            });
+
+            // 2. Add selection class to the clicked card and trigger a short pop animation
+            const selectedCard = document.getElementById(`role-${roleKey}`);
+            if (selectedCard) {
+                selectedCard.classList.add('selected');
+                // Add a brief pop class to give tactile feedback, then remove it
+                selectedCard.classList.add('pop');
+                window.setTimeout(() => selectedCard.classList.remove('pop'), 160);
+            }
+
+            // 3. Update form elements
+            const roleInfo = ROLES[roleKey];
+            if (roleInfo) {
+                formTitle.textContent = `${roleInfo.label} Login`;
+                subtitle.textContent = `Log in to your ${roleInfo.label} Portal.`;
+                loginButton.textContent = `Log In as ${roleInfo.label}`;
+                pageTitle.textContent = `${roleInfo.label} Login | AyurNova 🌿`;
+                selectedRoleInput.value = roleKey;
+            }
+        }
+
+        /**
+         * Initializes the page by checking the URL for a role parameter.
+         */
+        function initializeRoleSelection() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roleFromUrl = urlParams.get('role');
+
+            if (roleFromUrl && ROLES[roleFromUrl]) {
+                // Pre-select role if passed in URL
+                selectRole(roleFromUrl);
+            } else {
+                // Default selection (optional, or instruct user to select)
+                selectRole('patient');
+            }
+        }
+
+        /**
+         * Handles the dummy login process and redirection.
+         */
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const role = selectedRoleInput.value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            loginMessage.classList.add('hidden');
+            
+            if (!role) {
+                loginMessage.textContent = 'Please select your role first.';
+                loginMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Simple demo validation (replace with actual auth logic)
+            if (email && password) {
+                const roleInfo = ROLES[role];
+                loginMessage.textContent = `Success! Logging you in as ${roleInfo.label}...`;
+                loginMessage.classList.remove('hidden');
+                loginMessage.classList.remove('text-red-500');
+                loginMessage.classList.add('text-[#2e7d32]');
+
+                // Redirect to the role-specific dashboard after a short delay
+                setTimeout(() => {
+                    window.location.href = roleInfo.dashboard;
+                }, 1500);
+            } else {
+                loginMessage.textContent = 'Please enter both email and password.';
+                loginMessage.classList.remove('hidden');
+                loginMessage.classList.remove('text-[#2e7d32]');
+                loginMessage.classList.add('text-red-500');
+            }
+        });
+
+        // Run initialization when the page loads
+        window.onload = initializeRoleSelection;
+    </script>
+    
+    <!-- Assuming scripts/auth.js is intended for real authentication logic -->
+    <!-- <script src="scripts/auth.js"></script> -->
+</body>
+</html>
